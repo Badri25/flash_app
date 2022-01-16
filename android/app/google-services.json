@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "252007855612",
+    "project_id": "flash-chat-f1469",
+    "storage_bucket": "flash-chat-f1469.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252007855612:android:bd9e2198bb2755fd0fee79",
+        "android_client_info": {
+          "package_name": "co.badri.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252007855612-ad0n5ckd0iukhd3v2ovod9m5lshgqqbi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_T0Vz1fJG6Dv_AyfEw9njbrJgFkBAvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252007855612-ad0n5ckd0iukhd3v2ovod9m5lshgqqbi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252007855612:android:3608afd4f31df4330fee79",
+        "android_client_info": {
+          "package_name": "com.example.flash_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252007855612-ad0n5ckd0iukhd3v2ovod9m5lshgqqbi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_T0Vz1fJG6Dv_AyfEw9njbrJgFkBAvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252007855612-ad0n5ckd0iukhd3v2ovod9m5lshgqqbi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
