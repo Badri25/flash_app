@@ -1,11 +1,16 @@
 
 
+
+import 'package:encrypt/encrypt.dart' as enc;
+import 'package:encrypt/encrypt.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flash_app/model/MessageModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 final _firestore = FirebaseFirestore.instance;
 User loggedInUser;
@@ -21,6 +26,9 @@ class _ChatScreenState extends State<ChatScreen> {
   final _auth = FirebaseAuth.instance;
   String messageText;
 
+
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -34,6 +42,7 @@ class _ChatScreenState extends State<ChatScreen> {
        loggedInUser = user;
      }
    }
+
 
 
 
@@ -76,11 +85,14 @@ class _ChatScreenState extends State<ChatScreen> {
                   FlatButton(
                     onPressed: () {
                       messageTextController.clear();
+
+                      String ec = EncryptionDecryption.encryptMessage(messageText);
                       _firestore.collection('messages').add({
-                        'text':messageText,
+                        'text': ec,
                         'sender':loggedInUser.email,
                         'timestamp': FieldValue.serverTimestamp(),
                       });
+
                     },
                     child: Text(
                       'Send',
@@ -114,13 +126,14 @@ class MessagesStream extends StatelessWidget {
         final messages = snapshot.data.docs;
         List<MessageBubble> messageBubbles = [];
         for(var message in messages){
-          final messageText=message['text'];
+
+          final messageText= message['text'];
           final messageSender = message['sender'];
           final currentUser=loggedInUser.email;
 
           final messageBubble = MessageBubble(
             sender: messageSender,
-            text: messageText,
+            text: EncryptionDecryption.decryptMessage(enc.Encrypted.fromBase64(messageText)),
             isMe:currentUser==messageSender ,
           );
           messageBubbles.add(messageBubble);
@@ -182,6 +195,6 @@ MessageBubble({ this.sender, this.text, this.isMe});
           ),
         ],
       ),
-    );;
+    );
   }
 }
